@@ -3,6 +3,14 @@ rem布局 横竖屏旋转
 
 ## meta ##
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0,  user-scalable=0" name="viewport"/>
+# html #
+    <!--旋转的盒子-->
+	<div class="screen">
+		
+		<!--主体内容居中显示-->
+		<div class="wrap"></div>
+	
+	</div>
 ## css ##
 	.screen{
 	    width: 100%;
@@ -60,13 +68,13 @@ function fitScreen(){
         }
     }
 }
-// 横屏
+
+// 横屏函数
 function h(){
     setTimeout(function(){
         sv = 'w';
         var ww = $(window).width();
         var wh = $(window).height();
-
         screen.css({
             'left':"50%",
             'top':'50%',
@@ -75,14 +83,15 @@ function h(){
             'transform':'translate3d(-50%,-50%,0)',
             '-webkit-transform':'translate3d(-50%,-50%,0)'
         });
-
+		
         var scale = wh / wrapW < ww / wrapH ? wh / wrapW : ww / wrapH;
         $('.wrap').css({
         	'transform': 'scale('+scale+')'
         });
     },300);
 }
-// 竖屏
+
+// 竖屏函数
 function v1(){
     setTimeout(function(){
     	sv = 'h';
@@ -109,27 +118,13 @@ function v1(){
 ## 注意 ##
 
 
-1. 背景图要加`background-size:cover`属性
-2. 雪碧图`background-size: 整个雪碧图的宽，整个雪碧图的高`，用`background-position`定位每个小图
-3. img要写width和height
-4. 100px = 1rem 可以直接换算
-5. js代码最好放在head里面
-6. chrome模拟手机时，用原始尺寸，不要用原来自己设置的尺寸
-7. 当页面中有canvas时，canvas按照设计图尺寸写，最后把canvas整体缩一下
+1. 上面代码为常规专题（页面有主体内容1030*640）时
+2. 视频及cavans时可能不需要主体内容wrap,只需要旋转screen就可以
+
 	
-```javascript
-//当canvas不是全屏
-$('canvas').css({
-	'width': $(window).width(), 
-	'height': canva原始的高度*$(window).width()/640
-})
-//当canvas是全屏
-$('canvas').css({
-	'width': $(window).width(), 
-	'height': $(window).height()
-})
-```
 
 
 ## demo ##
-[点击查看](http://test.go.163.com/go/2017/1009/rem/)
+[点击查看](http://test.go.163.com/go/2015/public/team/liwenhui/f2e-rem-rotate/)
+# 实际项目 #
+[点击查看](http://test.go.163.com/go/2018/0101/haihang/index.html)
