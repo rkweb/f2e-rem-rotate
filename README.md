@@ -49,7 +49,7 @@ window.addEventListener("onorientationchange" in window ? "orientationchange" : 
 function fitScreen(){
     var  ww = $(window).width();
     var wh = $(window).height();
-    if(netease.ua.weixin){
+    if(netease.ua.weixin || window.orientation){
         if(window.orientation === 90 || window.orientation === -90){
             // 横屏 浏览器的宽度大于高度
             hor();
@@ -121,6 +121,6 @@ function ver(){
 
 
 ## demo ##
-[点击查看](http://test.go.163.com/go/2015/public/team/liwenhui/f2e-rem-rotate/)
+[点击查看](http://go.163.com/web/f2e_common/common/f2e-rem/orient.html)
 # 实际项目 #
 [点击查看](http://test.go.163.com/go/2018/0101/haihang/index.html)
