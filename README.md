@@ -52,32 +52,30 @@ function fitScreen(){
     if(netease.ua.weixin){
         if(window.orientation === 90 || window.orientation === -90){
             // 横屏 浏览器的宽度大于高度
-            h();
+            hor();
         }
         if(window.orientation === 180 || window.orientation === 0){
             // 竖屏 浏览器的宽度小于高度
-            v1();
+            ver();
         }
     }else{
         if(ww > wh){
         	 // 横屏
-            h();  
+            hor();  
         }else{
            // 竖屏
-            v1();
+            ver();
         }
     }
 }
 
 // 横屏函数
-function h(){
+function hor(){
     setTimeout(function(){
         sv = 'w';
         var ww = $(window).width();
         var wh = $(window).height();
         screen.css({
-            'left':"50%",
-            'top':'50%',
             'width':ww + 'px',
             'height':wh + 'px',
             'transform':'translate3d(-50%,-50%,0)',
@@ -92,15 +90,13 @@ function h(){
 }
 
 // 竖屏函数
-function v1(){
+function ver(){
     setTimeout(function(){
     	sv = 'h';
        
         var ww = $(window).width();
         var wh = $(window).height();
         screen.css({
-            'left':"50%",
-            'top':'50%',
             'width':wh + 'px',
             'height':ww + 'px',
             'transform':'translate3d(-50%,-50%,0) rotate(90deg)',
