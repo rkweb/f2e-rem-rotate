@@ -58,12 +58,7 @@ rem布局 横竖屏旋转
     function rem() {
 	var wWidth = window.innerWidth;
 	var wHeight = window.innerHeight;
-	var w;
-	if (wWidth > wHeight) {
-	    w = wHeight;
-	} else {
-	    w = wWidth;
-	}
+	var w = wWidth > wHeight? wHeight: wWidth;
 	var fontSize = w > 1000 ? 100 : 100 * w / psdWidth;
 	document.documentElement.style.fontSize = fontSize + 'px';
     }
@@ -73,6 +68,7 @@ rem布局 横竖屏旋转
 	var timer = setTimeout(rem, 100);
     }, false);
 })(640);  //传入设计稿宽度
+
 
 
 //旋转屏幕
@@ -109,7 +105,7 @@ rem布局 横竖屏旋转
 		'transform': 'translate3d(-50%,-50%,0)',
 		'-webkit-transform': 'translate3d(-50%,-50%,0)'
 	    });
-	}, 300);
+	}, 350);
     }
     // 竖屏
     function ver() {
@@ -122,9 +118,10 @@ rem布局 横竖屏旋转
 		'transform': 'translate3d(-50%,-50%,0) rotate(90deg)',
 		'-webkit-transform': 'translate3d(-50%,-50%,0) rotate(90deg)'
 	    });
-	}, 300);
+	}, 350);
     }
 })();
+
 
 
 //缩放
@@ -137,10 +134,7 @@ rem布局 横竖屏旋转
 	} //屏蔽软键盘弹起时触发resize事件（只考虑竖屏）
 	var wWidth = window.innerWidth;
 	var wHeight = window.innerHeight;
-	var h = 640 / wWidth * wHeight;
-	if (wWidth > wHeight) { //横屏判断
-	    h = 640 / wHeight * wWidth;
-	}
+	var h = wWidth < wHeight? 640 / wWidth * wHeight : 640 / wHeight * wWidth;
 	if (h <= scaleHeight) {
 	    $('.scale').css({
 		'-webkit-transform': 'scale(' + h / scaleHeight + ')'
@@ -149,6 +143,7 @@ rem布局 横竖屏旋转
     }
     scale();
 })(1030); //传入内容安全区域高度（设计稿宽度换算成640）
+
 
 ```
 
